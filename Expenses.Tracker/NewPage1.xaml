@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Expenses.Tracker.NewPage1"
+             Title="NewPage1">
+    <VerticalStackLayout>
+        <Frame BackgroundColor="Black">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Text="Expenses" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="Red"></Label>
+            </Grid>
+        </Frame>
+        <Frame>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Text="" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="Red" x:Name="ExpensesTotal"></Label>
+            </Grid>
+        </Frame>
+        <Frame BackgroundColor="Black">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Text="Savings" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="Green"></Label>
+            </Grid>
+        </Frame>
+        <Frame>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Text="" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="Green" x:Name="SavingsTotal"></Label>
+            </Grid>
+        </Frame>
+        <Frame BackgroundColor="Black">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Text="Bank" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="White"></Label>
+            </Grid>
+        </Frame>
+        <Frame>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Text="" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="Green" x:Name="Bank"></Label>
+            </Grid>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>

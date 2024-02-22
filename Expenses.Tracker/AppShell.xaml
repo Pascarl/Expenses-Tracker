@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Expenses.Tracker.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Expenses.Tracker"
+    Shell.FlyoutBehavior="Flyout"
+    Shell.TabBarIsVisible="False"
+    BackgroundColor="SlateGray"
+    Title="Expenses.Tracker">
+
+    <Shell.FlyoutHeader>
+        <VerticalStackLayout Padding="15" Spacing="10">
+            <Image Source="expenses.png" WidthRequest="80"></Image>
+            <Label Text="Home" FontSize="55" FontAttributes="Bold" TextDecorations="Underline" HorizontalOptions="Center"></Label>
+        </VerticalStackLayout>
+    </Shell.FlyoutHeader>
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid RowSpacing="10" ColumnSpacing="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="{Binding FlyoutIcon}" Grid.Column="0" WidthRequest="60" HeightRequest="60" HorizontalOptions="Start" Margin="10"></Image>
+                <Label Text="{Binding Title}" Grid.Column="1" FontAttributes="Bold" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Start"></Label>
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Title="Home"
+        Route="MainPage" 
+        Icon="expenses.png"/>
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:Aboutus}"
+        Title="About Us"
+        Route="Aboutus" 
+        Icon="about.png"/>
+
+
+</Shell>

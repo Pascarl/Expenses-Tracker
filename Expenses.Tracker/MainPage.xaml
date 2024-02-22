@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             x:Class="Expenses.Tracker.MainPage"
+             BackgroundColor="SlateGray">
+
+    <ScrollView BackgroundColor="SlateGray">
+        <VerticalStackLayout Padding="30" Spacing="5" BackgroundColor="SlateGray">
+            <Frame BackgroundColor="Black" CornerRadius="35">
+                <Grid RowSpacing="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Text="Expense" HorizontalOptions="Center" TextColor="White" FontSize="Large" FontAttributes="Bold"></Label>
+                    <Label Grid.Column="1" Text="Cost" HorizontalOptions="Center" TextColor="red" FontSize="Large" FontAttributes="Bold"></Label>
+                </Grid>
+            </Frame>
+            
+            <Frame>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" HorizontalOptions="Center" TextColor="Black" FontSize="Medium" FontAttributes="Bold" x:Name="expenselist"></Label>
+                    <Label Grid.Column="1" HorizontalOptions="Center" TextColor="red" FontSize="Medium" FontAttributes="Bold" x:Name="cstlist"></Label>
+                </Grid>
+            </Frame>
+            
+            <Frame Padding="10" BackgroundColor="Transparent" BorderColor="Transparent" HeightRequest="250">
+                <Grid ColumnSpacing="10" RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Entry Placeholder="Please enter expenses here!" Grid.Column="0" Grid.Row="0" FontAttributes="Bold" x:Name="ExpenseEntry" BackgroundColor="White" TextColor="Black"></Entry>
+                    <Entry Placeholder="Please enter cost here!" Grid.Column="1" Grid.Row="0" FontAttributes="Bold" x:Name="CostEntry" BackgroundColor="White" TextColor="Black"></Entry>
+                    <Button Text="ADD" Grid.Column="0" Grid.Row="1" FontSize="Medium" FontAttributes="Bold" Clicked="AddBtn"></Button>
+                    <Button Text="Cancel" Grid.Column="1" Grid.Row="1" FontSize="Medium" FontAttributes="Bold" Clicked="CancelBtn"></Button>
+                    <Label Text="INCOME" Grid.Row="2" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" BackgroundColor="Black"></Label>
+                    <Entry Placeholder="Please enter income here!" Grid.Row="2" Grid.Column="1" x:Name="Income" FontAttributes="Bold" FontSize="15" TextColor="Black" BackgroundColor="White"></Entry>
+                    <Button Text="Calculate" Grid.Row="3" Grid.ColumnSpan="2" FontSize="Medium" FontAttributes="Bold" Clicked="CalculateBtn"></Button>
+                </Grid>
+            </Frame>
+            
+            <Frame BackgroundColor="Transparent" BorderColor="Transparent">
+                <VerticalStackLayout BackgroundColor="Transparent" Spacing="10">
+                    <Frame BackgroundColor="Black" CornerRadius="35" BorderColor="Transparent" HeightRequest="85">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Expenses" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="Red"></Label>
+                        </Grid>
+                    </Frame>
+
+                    <Frame HeightRequest="80"  BorderColor="Transparent">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="Red" x:Name="ExpensesTotal"></Label>
+                        </Grid>
+                    </Frame>
+
+                    <Frame BackgroundColor="Black" CornerRadius="35" BorderColor="Transparent" HeightRequest="85">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Savings" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="Green"></Label>
+                        </Grid>
+                    </Frame>
+
+                    <Frame HeightRequest="80"  BorderColor="Transparent">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="Green" x:Name="SavingsTotal"></Label>
+                        </Grid>
+                    </Frame>
+
+                    <Frame BackgroundColor="Black" CornerRadius="35" BorderColor="Transparent" HeightRequest="85">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Bank" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="White"></Label>
+                        </Grid>
+                    </Frame>
+
+                    <Frame HeightRequest="80"  BorderColor="Transparent">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="Green" x:Name="Bank"></Label>
+                        </Grid>
+                    </Frame>
+
+                    <Frame BackgroundColor="Black" CornerRadius="35"  BorderColor="Transparent" HeightRequest="85">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Profit" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="White"></Label>
+                        </Grid>
+                    </Frame>
+
+                    <Frame HeightRequest="80"  BorderColor="Transparent">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="Green" x:Name="leftover"></Label>
+                        </Grid>
+                    </Frame>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
